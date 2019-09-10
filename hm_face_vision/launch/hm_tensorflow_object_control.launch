@@ -1,0 +1,48 @@
+<launch>
+	<node pkg= "tensorflow_object_detector" name="detect_ros" type="detect_ros.py"  output="screen"> 
+    <remap from="image" to="/usb_cam_node/image_raw"/>
+	</node>
+
+  <node pkg="usb_cam" type="usb_cam_node" name="usb_cam_node" output="screen">
+    <param name="pixel_format" value="yuyv"/>
+    <param name="video_device" value="/dev/video0"/>
+  </node>
+
+  <node pkg="image_view" type="image_view" name="image_view">
+    <remap from="image" to="debug_image"/>
+  </node>
+  
+ <node pkg="hm_face_vision" type="tensorflow_deal.py" name="tensorflow_deal" output="screen" />
+ <!--<node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node" />-->
+ <!-- this is gazebo robot model-->
+    <arg name="world_name" value="$(find hmbot_description)/worlds/play_ground.world"/>
+    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+	<arg name="world_name" value="$(arg world_name)" />
+        <arg name="debug" value="$(arg debug)" />
+        <arg name="gui" value="$(arg gui)" />
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+    </include>
+
+
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find hmbot_description)/urdf/hmbot_gazebo.xacro'" /> 
+
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node> 
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"  output="screen" >
+        <param name="publish_frequency" type="double" value="50.0" />
+    </node>
+
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args="-urdf -model mrobot -param robot_description"/>
+
+    
+  
+</launch>

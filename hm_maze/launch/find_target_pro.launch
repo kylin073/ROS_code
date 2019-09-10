@@ -1,0 +1,9 @@
+<launch>
+	
+
+	<node name="exploring_maze_pro" pkg="hm_maze" type="exploring_maze_pro.py" output="screen"/>
+	<node name="object_detect" pkg="hm_maze" type="object_detect.py" output="screen"/>
+	<node name="move_to_target" pkg="hm_maze" type="move_to_target" output="screen" />
+	<node name="tts_subscriber" pkg="hmbot_voice" type="tts_subscriber" output="screen" />
+
+</launch>

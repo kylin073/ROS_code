@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node" />
+    <node pkg="homework_part3" type="homework_turtlespawn" name="homework_turtlespawn" output="screen" />
+
+</launch>

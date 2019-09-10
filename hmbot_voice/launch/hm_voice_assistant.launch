@@ -1,0 +1,6 @@
+<launch>
+
+	<node name="iat_publisher" pkg="hmbot_voice" type="iat_publisher" output="screen"/>
+	<node name="voice_assistant" pkg="hmbot_voice" type="voice_assistant" output="screen"/>
+
+</launch>

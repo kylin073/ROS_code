@@ -1,0 +1,56 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"back_caster_link" [label="back_caster_link"];
+"front_caster_link" [label="front_caster_link"];
+"left_wheel_link" [label="left_wheel_link"];
+"right_wheel_link" [label="right_wheel_link"];
+"support_leftdown_link" [label="support_leftdown_link"];
+"support_leftup_link" [label="support_leftup_link"];
+"support_middle_link" [label="support_middle_link"];
+"base_level_link" [label="base_level_link"];
+"laser_link" [label="laser_link"];
+"support_levelld_link" [label="support_levelld_link"];
+"support_levellu_link" [label="support_levellu_link"];
+"support_levelrd_link" [label="support_levelrd_link"];
+"base_leveltop_link" [label="base_leveltop_link"];
+"kinect_link" [label="kinect_link"];
+"support_levelru_link" [label="support_levelru_link"];
+"support_rightdown_link" [label="support_rightdown_link"];
+"support_rightup_link" [label="support_rightup_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "back_caster_joint" [label="xyz: -0.12 0 -0.06 \nrpy: 0 -0 0"]
+"back_caster_joint" -> "back_caster_link"
+"base_link" -> "front_caster_joint" [label="xyz: 0.12 0 -0.06 \nrpy: 0 -0 0"]
+"front_caster_joint" -> "front_caster_link"
+"base_link" -> "left_wheel_joint" [label="xyz: 0 0.15 -0.05 \nrpy: 0 -0 0"]
+"left_wheel_joint" -> "left_wheel_link"
+"base_link" -> "right_wheel_joint" [label="xyz: 0 -0.15 -0.05 \nrpy: 0 -0 0"]
+"right_wheel_joint" -> "right_wheel_link"
+"base_link" -> "support_leftdown_joint" [label="xyz: -0.18 -0.13 0.05 \nrpy: 0 -0 0"]
+"support_leftdown_joint" -> "support_leftdown_link"
+"base_link" -> "support_leftup_joint" [label="xyz: -0.18 0.13 0.05 \nrpy: 0 -0 0"]
+"support_leftup_joint" -> "support_leftup_link"
+"base_link" -> "support_middle_joint" [label="xyz: 0 0 0.05 \nrpy: 0 -0 0"]
+"support_middle_joint" -> "support_middle_link"
+"support_middle_link" -> "base_level_joint" [label="xyz: 0 0 0.08 \nrpy: 0 -0 0"]
+"base_level_joint" -> "base_level_link"
+"base_level_link" -> "laser_joint" [label="xyz: -0.15 0 0.01 \nrpy: 0 -0 0"]
+"laser_joint" -> "laser_link"
+"base_level_link" -> "support_levelld_joint" [label="xyz: 0.18 -0.13 0.01 \nrpy: 0 -0 0"]
+"support_levelld_joint" -> "support_levelld_link"
+"base_level_link" -> "support_levellu_joint" [label="xyz: 0 -0.13 0.01 \nrpy: 0 -0 0"]
+"support_levellu_joint" -> "support_levellu_link"
+"base_level_link" -> "support_levelrd_joint" [label="xyz: 0.18 0.13 0.01 \nrpy: 0 -0 0"]
+"support_levelrd_joint" -> "support_levelrd_link"
+"support_levelrd_link" -> "base_leveltop_joint" [label="xyz: -0.09 -0.13 0.08 \nrpy: 0 -0 0"]
+"base_leveltop_joint" -> "base_leveltop_link"
+"base_leveltop_link" -> "kinect_joint" [label="xyz: 0 0 0.01 \nrpy: 0 -0 0"]
+"kinect_joint" -> "kinect_link"
+"base_level_link" -> "support_levelru_joint" [label="xyz: 0 0.13 0.01 \nrpy: 0 -0 0"]
+"support_levelru_joint" -> "support_levelru_link"
+"base_link" -> "support_rightdown_joint" [label="xyz: 0.18 -0.13 0.05 \nrpy: 0 -0 0"]
+"support_rightdown_joint" -> "support_rightdown_link"
+"base_link" -> "support_rightup_joint" [label="xyz: 0.18 0.13 0.05 \nrpy: 0 -0 0"]
+"support_rightup_joint" -> "support_rightup_link"
+}

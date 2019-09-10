@@ -1,0 +1,7 @@
+<launch>
+
+	<node name="iat_publisher" pkg="hmbot_voice" type="iat_publisher" output="screen"/>
+	<node name="voice_control" pkg="hmbot_voice" type="voice_control" output="screen"/>
+	<node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node" />
+
+</launch>

@@ -1,0 +1,8 @@
+<launch>
+
+    <include file="$(find hm_gazebo)/launch/gmapping_homework.launch"/>
+
+    <!-- 启动rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find hm_gazebo)/rviz/gmapping.rviz"/>
+
+</launch>

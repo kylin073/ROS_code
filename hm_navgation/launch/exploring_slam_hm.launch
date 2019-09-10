@@ -1,0 +1,11 @@
+<launch>
+
+    <include file="$(find hm_navgation)/launch/gmapping.launch"/>
+
+    <!-- 运行move_base节点 -->
+    <include file="$(find hm_navgation)/launch/move_base.launch" />
+
+    <!-- 运行rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find hm_navgation)/rviz/nav.rviz"/>
+
+</launch>

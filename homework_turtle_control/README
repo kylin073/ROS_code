@@ -1,0 +1,6 @@
+首先运行小海龟程序
+rosrun turtlesim turtlesim_node
+然后运行创建一只小海龟的程序 输入海龟的名字以及创建的位置
+rosrun turtlesim turtlesim_node
+然后运行控制小海龟圆周运动的程序 输入海龟名字 以及 运动的角速度和线速度
+rosrun homework_turtle_control control_turtle_circle

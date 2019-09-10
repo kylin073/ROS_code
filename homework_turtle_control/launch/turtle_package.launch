@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim_node" />
+    <node pkg="homework_turtle_control" type="create_turtle_client" name="create_turtle_client" output="screen" />
+    
+
+</launch>
